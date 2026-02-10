@@ -1,8 +1,6 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 
 const ValuesSection = () => {
-  const { t } = useTranslation()
 
   const values = [
     {
@@ -32,13 +30,13 @@ const ValuesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <p className="text-sm font-semibold text-agri-green uppercase tracking-wider mb-4">
-            {t('values.sectionLabel')}
+            VALUES
           </p>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-agri-dark mb-6">
-            {t('values.sectionTitle')}
+            Why Our AI Platform Matters
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            {t('values.sectionDescription')}
+            Empowering Indian farmers with intelligent tools for sustainable and profitable agriculture
           </p>
         </div>
 
@@ -57,10 +55,10 @@ const ValuesSection = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-agri-dark mb-3">
-                    {t(`values.${value.id}_title`)}
+                    {value.id === 'dataDriven' ? 'Data-Driven Decisions' : value.id === 'monsoon' ? 'Monsoon-Aware Intelligence' : value.id === 'farmer' ? 'Farmer-First Design' : 'Sustainable Resource Use'}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-lg">
-                    {t(`values.${value.id}_desc`)}
+                    {value.id === 'dataDriven' ? 'Make informed choices with AI-powered insights based on real-time data and historical patterns.' : value.id === 'monsoon' ? 'Stay ahead of weather patterns with predictive climate analysis tailored for Indian farming seasons.' : value.id === 'farmer' ? 'Built for Indian farmers with simple, intuitive interfaces that work in rural connectivity conditions.' : 'Optimize water, fertilizer, and energy usage for maximum yield with minimal environmental impact.'}
                   </p>
                 </div>
               </div>

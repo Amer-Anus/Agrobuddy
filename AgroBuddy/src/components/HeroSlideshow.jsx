@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 
 // ============================================
 // SLIDE DATA CONFIGURATION
@@ -63,7 +62,9 @@ const SLIDES_DATA = [
   },
   {
     id: 7,
-    i18nKey: 'slideshow_7',
+    title: 'Government Schemes',
+    description: 'Discover eligible government schemes and subsidies tailored to your farming profile',
+    cta: 'Find Schemes',
     link: '/government-schemes',
     backgroundImage: 'https://images.unsplash.com/photo-1574943320219-553eb2137222?w=1920&q=80',
     sectionId: 'govt-schemes',
@@ -73,7 +74,6 @@ const SLIDES_DATA = [
 const AUTOPLAY_INTERVAL = 4000 // 4 seconds - Update this to change autoplay speed
 
 const HeroSlideshow = () => {
-  const { t } = useTranslation()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const autoplayTimerRef = useRef(null)
@@ -178,7 +178,7 @@ const HeroSlideshow = () => {
     goToSlide(index)
   }
 
-  const currentSlideData = SLIDES_CONFIG[currentSlide]
+  const currentSlideData = SLIDES_DATA[currentSlide]
 
   return (
     <section
@@ -190,7 +190,7 @@ const HeroSlideshow = () => {
     >
       {/* Background Images Container */}
       <div className="absolute inset-0">
-        {SLIDES_CONFIG.map((slide, index) => (
+        {SLIDES_DATA.map((slide, index) => (
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -234,17 +234,17 @@ const HeroSlideshow = () => {
             >
               <div className="max-w-5xl mx-auto px-4">
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 animate-fade-in leading-tight">
-                  {t(`slideshow.${slide.i18nKey}_title`)}
+                  {slide.title}
                 </h1>
                 <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                  {t(`slideshow.${slide.i18nKey}_desc`)}
+                  {slide.description}
                 </p>
                 <button
                   onClick={(e) => handleCTAClick(e, slide)}
                   className="slide-cta-button inline-block bg-agri-green hover:bg-agri-light-green text-white font-semibold py-5 px-10 md:py-6 md:px-12 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-110 hover:shadow-3xl text-xl md:text-2xl"
-                  aria-label={`${t(`slideshow.${slide.i18nKey}_cta`)} - Navigate to section`}
+                  aria-label={`${slide.cta} - Navigate to section`}
                 >
-                  {t(`slideshow.${slide.i18nKey}_cta`)}
+                  {slide.cta}
                 </button>
               </div>
             </div>
@@ -300,7 +300,7 @@ const HeroSlideshow = () => {
         role="tablist"
         aria-label="Slide indicators"
       >
-        {SLIDES_CONFIG.map((slide, index) => (
+        {SLIDES_DATA.map((slide, index) => (
           <button
             key={slide.id}
             onClick={(e) => handleDotClick(e, index)}

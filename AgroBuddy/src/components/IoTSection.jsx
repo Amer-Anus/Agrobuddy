@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useTranslation } from 'react-i18next'
 
 function Cube3D() {
   return (
@@ -21,7 +20,7 @@ function format(v) {
 }
 
 export default function IoTSection() {
-  const { t } = useTranslation()
+  
   const [devices, setDevices] = useState([])
   const nextId = useRef(1)
 
@@ -105,9 +104,9 @@ export default function IoTSection() {
   return (
     <div className="max-w-6xl mx-auto py-24 px-4">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-semibold">{t('iot.title')}</h2>
+        <h2 className="text-2xl font-semibold">IoT Devices (Simulated)</h2>
         <div className="space-x-2">
-          <button onClick={addDevice} className="px-3 py-2 bg-agri-green text-white rounded">{t('iot.addDevice')}</button>
+          <button onClick={addDevice} className="px-3 py-2 bg-agri-green text-white rounded">Add Device</button>
         </div>
       </div>
 
@@ -119,29 +118,29 @@ export default function IoTSection() {
               <div className="flex justify-between items-start">
                 <div>
                   <div className="font-medium">{d.name}</div>
-                  <div className={`text-sm ${d.online ? 'text-green-600' : 'text-red-500'}`}>{d.online ? t('iot.online') : t('iot.offline')}</div>
+                  <div className={`text-sm ${d.online ? 'text-green-600' : 'text-red-500'}`}>{d.online ? 'Online' : 'Offline'}</div>
                 </div>
                 <div className="text-right">
                   <button onClick={() => toggleOnline(d.id)} className="text-sm text-gray-600 hover:underline">
-                    {d.online ? t('iot.pause') : t('iot.resume')}
+                      {d.online ? 'Pause' : 'Resume'}
                   </button>
                   <div>
-                    <button onClick={() => removeDevice(d.id)} className="text-sm text-red-500 hover:underline">{t('iot.remove')}</button>
+                    <button onClick={() => removeDevice(d.id)} className="text-sm text-red-500 hover:underline">Remove</button>
                   </div>
                 </div>
               </div>
 
               <div className="mt-3 grid grid-cols-3 gap-2 text-sm">
                 <div className="bg-gray-50 p-2 rounded text-center">
-                  <div className="text-xs text-gray-500">{t('iot.soil')}</div>
+                  <div className="text-xs text-gray-500">Soil (%)</div>
                   <div className="font-semibold">{format(d.telemetry.soilMoisture)}</div>
                 </div>
                 <div className="bg-gray-50 p-2 rounded text-center">
-                  <div className="text-xs text-gray-500">{t('iot.temp')}</div>
+                  <div className="text-xs text-gray-500">Temp (°C)</div>
                   <div className="font-semibold">{format(d.telemetry.temp)}</div>
                 </div>
                 <div className="bg-gray-50 p-2 rounded text-center">
-                  <div className="text-xs text-gray-500">{t('iot.humidity')}</div>
+                  <div className="text-xs text-gray-500">Humidity (%)</div>
                   <div className="font-semibold">{format(d.telemetry.humidity)}</div>
                 </div>
               </div>
@@ -151,7 +150,7 @@ export default function IoTSection() {
       </div>
 
       {devices.length === 0 && (
-        <div className="mt-8 text-center text-gray-500">{t('iot.noDevices')}</div>
+        <div className="mt-8 text-center text-gray-500">No devices yet — click "Add Device" to create simulated IoT units.</div>
       )}
 
       <style>{`

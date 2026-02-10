@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import LanguageSelector from './LanguageSelector'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
-  const { t } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,16 +15,16 @@ const Navbar = () => {
   }, [])
 
   const menuItems = [
-    { name: t('navbar.home'), path: '/' },
-    { name: t('navbar.iotDevices'), path: '/iot-devices' },
-    { name: t('navbar.learn'), path: '/learn-agriculture/basics' },
-    { name: t('navbar.cropRecommendation'), path: '/crop-recommendation' },
-    { name: t('navbar.weatherAlerts'), path: '/weather-alerts' },
-    { name: t('navbar.marketPrices'), path: '/market-prices' },
-    { name: t('navbar.resourceOptimization'), path: '/resource-optimization' },
-    { name: t('navbar.diseaseDetection'), path: '/disease-detection' },
-    { name: t('navbar.aiChatbot'), path: '/ai-chatbot' },
-    { name: t('navbar.governmentSchemes'), path: '/government-schemes' },
+    { name: 'Home', path: '/' },
+    { name: 'IoT Devices', path: '/iot-devices' },
+    { name: 'Learn Agriculture', path: '/learn-agriculture/basics' },
+    { name: 'Crop Recommendation', path: '/crop-recommendation' },
+    { name: 'Weather Alerts', path: '/weather-alerts' },
+    { name: 'Market Prices', path: '/market-prices' },
+    { name: 'Resource Optimization', path: '/resource-optimization' },
+    { name: 'Disease Detection', path: '/disease-detection' },
+    { name: 'AI Chatbot', path: '/ai-chatbot' },
+    { name: 'Government Schemes', path: '/government-schemes' },
   ]
 
   return (
@@ -63,10 +60,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          {/* Language selector visible on all sizes */}
-          <div className="ml-3">
-            <LanguageSelector />
-          </div>
+
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
