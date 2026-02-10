@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation()
+
   return (
     <footer className="relative py-8 px-6 sm:px-8 lg:px-12 overflow-hidden bg-gradient-to-br from-agri-green via-agri-light-green to-agri-dark">
       {/* Background Pattern Overlay */}
@@ -25,14 +28,14 @@ const Footer = () => {
             </h3>
           </div>
           <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Built for Hackathon – AI for Agriculture & Rural Support
+            {t('footer.tagline')}
           </p>
         </div>
 
         {/* Footer Bottom */}
         <div className="border-t border-white/20 pt-4 text-center">
           <p className="text-white/60 text-xs sm:text-sm">
-            © 2026 AgroBuddy Platform. All rights reserved.
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

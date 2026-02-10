@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Hero = () => {
   const scrollToFeatures = () => {
@@ -7,6 +8,8 @@ const Hero = () => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
+
+  const { t } = useTranslation()
 
   return (
     <section
@@ -31,17 +34,17 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-            AI-Powered Growth for
-            <span className="block text-agri-bright-green"> Indian Agriculture</span>
+            {t('hero.titlePart1')}
+            <span className="block text-agri-bright-green"> {t('hero.titleHighlight')}</span>
           </h1>
           <p className="text-xl sm:text-2xl md:text-3xl text-white/90 mb-12 leading-relaxed font-light">
-            Smarter farming decisions using data & AI
+            {t('hero.subtitle')}
           </p>
           <button
             onClick={scrollToFeatures}
             className="inline-flex items-center px-8 py-4 bg-white text-agri-green font-semibold text-lg rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
           >
-            Explore Insights
+            {t('hero.cta')}
             <svg
               className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform"
               fill="none"
