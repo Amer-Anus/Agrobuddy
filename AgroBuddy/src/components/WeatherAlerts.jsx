@@ -27,6 +27,9 @@ const WeatherAlerts = () => {
   const generateForecast = (baseLow, baseHigh, conditionList, iconList, rainList, windList) => {
     const today = getTodayDate()
     const forecast = []
+    
+    // More realistic temperature variations
+    const tempVariations = [0, 1, 2, 1, -1, -2, 0]
 
     for (let i = 0; i < 7; i++) {
       const forecastDate = new Date(today)
@@ -36,8 +39,8 @@ const WeatherAlerts = () => {
       forecast.push({
         day: dayName,
         date: formatDate(forecastDate),
-        high: baseHigh + (i % 3 - 1),
-        low: baseLow + (i % 3 - 1),
+        high: baseHigh + tempVariations[i],
+        low: baseLow + tempVariations[i],
         condition: conditionList[i % conditionList.length],
         icon: iconList[i % iconList.length],
         rain: rainList[i % rainList.length],
