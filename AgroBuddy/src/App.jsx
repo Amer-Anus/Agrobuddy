@@ -29,7 +29,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Agrobuddy">
       <ScrollToTop />
       <div className="min-h-screen bg-gray-50">
         <Navbar />
