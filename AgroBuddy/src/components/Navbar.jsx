@@ -16,7 +16,6 @@ const Navbar = () => {
 
   const menuItems = [
     { name: 'Home', path: '/' },
-    { name: 'IoT Devices', path: '/iot-devices' },
     { name: 'Learn Agriculture', path: '/learn-agriculture/basics' },
     { name: 'Crop Recommendation', path: '/crop-recommendation' },
     { name: 'Weather Alerts', path: '/weather-alerts' },
