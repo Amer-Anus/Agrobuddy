@@ -15,6 +15,7 @@ import ResourceOptimizationPage from './pages/ResourceOptimizationPage'
 import DiseaseDetectionPage from './pages/DiseaseDetectionPage'
 import AIChatbotPage from './pages/AIChatbotPage'
 import GovernmentSchemesPage from './pages/GovernmentSchemesPage'
+import IoTDevicesPage from './pages/IoTDevicesPage'
 
 // Component to scroll to top on route change
 function ScrollToTop() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/disease-detection" element={<DiseaseDetectionPage />} />
           <Route path="/ai-chatbot" element={<AIChatbotPage />} />
           <Route path="/government-schemes" element={<GovernmentSchemesPage />} />
+          <Route path="/iot-devices" element={<IoTDevicesPage />} />
         </Routes>
       </div>
     </Router>
