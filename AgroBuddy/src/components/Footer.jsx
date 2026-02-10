@@ -31,9 +31,6 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="border-t border-white/20 pt-4 text-center">
-          <p className="text-white/80 mb-1 text-sm sm:text-base">
-            Team: <span className="font-semibold">Rayos</span>
-          </p>
           <p className="text-white/60 text-xs sm:text-sm">
             © 2026 AgroBuddy Platform. All rights reserved.
           </p>
