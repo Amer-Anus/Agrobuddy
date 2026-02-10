@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const WeatherAlerts = () => {
+  const { t } = useTranslation()
   const [selectedLocation, setSelectedLocation] = useState('mumbai')
   const [viewMode, setViewMode] = useState('today') // 'today', 'forecast', 'hourly'
 
@@ -286,10 +288,10 @@ const WeatherAlerts = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-4xl sm:text-5xl font-bold text-agri-green mb-4">
-            🌤️ Weather & Climate Alerts
+            🌤️ {t('weather.title')}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Real-time weather updates and climate alerts for your agricultural decisions
+            {t('weather_ui.headerDescription')}
           </p>
           <p className="text-sm text-gray-500 mt-3 max-w-2xl mx-auto italic">
             📅 Displaying weather data for today: <strong>{formatDate(getTodayDate())}</strong>
@@ -300,17 +302,17 @@ const WeatherAlerts = () => {
         <div className="max-w-4xl mx-auto mb-6">
           <div className="bg-white rounded-lg p-4 shadow-md">
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Select Location
+              {t('weather_ui.selectLocation')}
             </label>
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-green focus:border-transparent text-lg"
             >
-              <option value="mumbai">Mumbai, Maharashtra</option>
-              <option value="delhi">Delhi</option>
-              <option value="bangalore">Bangalore, Karnataka</option>
-              <option value="hyderabad">Hyderabad, Telangana</option>
+              <option value="mumbai">{t('weather_ui.mumbai')}</option>
+              <option value="delhi">{t('weather_ui.delhi')}</option>
+              <option value="bangalore">{t('weather_ui.bangalore')}</option>
+              <option value="hyderabad">{t('weather_ui.hyderabad')}</option>
             </select>
           </div>
         </div>
@@ -326,7 +328,7 @@ const WeatherAlerts = () => {
                   : 'text-gray-700 hover:bg-agri-bg'
               }`}
             >
-              Today
+              {t('weather.today')}
             </button>
             <button
               onClick={() => setViewMode('forecast')}
@@ -336,7 +338,7 @@ const WeatherAlerts = () => {
                   : 'text-gray-700 hover:bg-agri-bg'
               }`}
             >
-              7-Day Forecast
+              {t('weather.forecast7')}
             </button>
             <button
               onClick={() => setViewMode('hourly')}
@@ -346,7 +348,7 @@ const WeatherAlerts = () => {
                   : 'text-gray-700 hover:bg-agri-bg'
               }`}
             >
-              Hourly
+              {t('weather.hourly')}
             </button>
           </div>
         </div>
@@ -383,23 +385,23 @@ const WeatherAlerts = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-white rounded-lg p-4 shadow-md text-center">
                 <div className="text-3xl mb-2">🌧️</div>
-                <p className="text-sm text-gray-600 mb-1">Rainfall</p>
+                <p className="text-sm text-gray-600 mb-1">{t('weather_ui.rainfall')}</p>
                 <p className="text-2xl font-bold text-agri-green">{currentData.current.rainfall}mm</p>
               </div>
               <div className="bg-white rounded-lg p-4 shadow-md text-center">
                 <div className="text-3xl mb-2">📊</div>
-                <p className="text-sm text-gray-600 mb-1">Pressure</p>
+                <p className="text-sm text-gray-600 mb-1">{t('weather_ui.pressure')}</p>
                 <p className="text-2xl font-bold text-agri-green">{currentData.current.pressure} hPa</p>
               </div>
               <div className={`bg-white rounded-lg p-4 shadow-md text-center ${getUVIndexColor(currentData.current.uvIndex)}`}>
                 <div className="text-3xl mb-2">☀️</div>
-                <p className="text-sm mb-1">UV Index</p>
+                <p className="text-sm mb-1">{t('weather_ui.uvIndex')}</p>
                 <p className="text-2xl font-bold">{currentData.current.uvIndex}</p>
                 <p className="text-xs">{getUVIndexLabel(currentData.current.uvIndex)}</p>
               </div>
               <div className="bg-white rounded-lg p-4 shadow-md text-center">
                 <div className="text-3xl mb-2">👁️</div>
-                <p className="text-sm text-gray-600 mb-1">Visibility</p>
+                <p className="text-sm text-gray-600 mb-1">{t('weather_ui.visibility')}</p>
                 <p className="text-2xl font-bold text-agri-green">{currentData.current.visibility} km</p>
               </div>
             </div>
@@ -438,7 +440,7 @@ const WeatherAlerts = () => {
             {/* Farming Recommendations */}
             <div className="bg-gradient-to-br from-green-50 to-agri-bg rounded-xl p-6 shadow-md border-2 border-green-200">
               <h3 className="text-2xl font-bold text-agri-green mb-4 flex items-center">
-                <span className="mr-2">🌾</span> Today's Farming Recommendations
+                <span className="mr-2">🌾</span> {t('weather_ui.todaysRecommendations')}
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-white rounded-lg p-4">
@@ -470,7 +472,7 @@ const WeatherAlerts = () => {
         {viewMode === 'forecast' && (
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-xl p-6 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">7-Day Weather Forecast</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('weather_ui.forecastTitle')}</h3>
               <div className="space-y-3">
                 {currentData.forecast.map((day, index) => (
                   <div
@@ -506,7 +508,7 @@ const WeatherAlerts = () => {
         {viewMode === 'hourly' && (
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-xl p-6 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">24-Hour Forecast</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('weather_ui.hourlyTitle')}</h3>
               <div className="overflow-x-auto">
                 <div className="flex space-x-4 pb-4">
                   {currentData.hourly.map((hour, index) => (

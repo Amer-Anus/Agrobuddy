@@ -95,6 +95,40 @@ const resources = {
         schemes_title: 'Government Schemes',
         schemes_desc: 'Discover eligible government schemes and subsidies tailored to your farming profile',
         schemes_cta: 'Find Schemes'
+      },
+      learn: {
+        title: 'Learn Agriculture',
+        description: 'Simple, student-friendly lessons to help school and college students understand how agriculture works, why it matters, and how they can be part of its future.',
+        badge: 'Student-Friendly Mode',
+        badgeDescription: 'Content written in simple language for learners.',
+        exploreLesson: 'Explore lesson',
+        cards: {
+          basics_title: 'Basics of Agriculture',
+          basics_desc: 'Understand what agriculture is, why it matters, and how farms feed the world.',
+          lifecycle_title: 'Crop Lifecycle',
+          lifecycle_desc: 'From seed to harvest – explore each stage in a crop\'s life.',
+          soil_title: 'Soil Types & Testing',
+          soil_desc: 'Learn about different soils, simple tests, and why healthy soil is important.',
+          modern_title: 'Modern Farming Techniques',
+          modern_desc: 'Discover smart irrigation, drones, sensors, and climate-smart farming.',
+          schemes_title: 'Government Schemes (For Students)',
+          schemes_desc: 'Easy explanations of schemes and support programs useful for young learners.',
+          careers_title: 'Career Opportunities',
+          careers_desc: 'Explore jobs and courses in agriculture, from scientist to agri-entrepreneur.'
+        }
+      },
+      values: {
+        sectionLabel: 'VALUES',
+        sectionTitle: 'Why Our AI Platform Matters',
+        sectionDescription: 'Empowering Indian farmers with intelligent tools for sustainable and profitable agriculture',
+        dataDriven_title: 'Data-Driven Decisions',
+        dataDriven_desc: 'Make informed choices with AI-powered insights based on real-time data and historical patterns.',
+        monsoon_title: 'Monsoon-Aware Intelligence',
+        monsoon_desc: 'Stay ahead of weather patterns with predictive climate analysis tailored for Indian farming seasons.',
+        farmer_title: 'Farmer-First Design',
+        farmer_desc: 'Built for Indian farmers with simple, intuitive interfaces that work in rural connectivity conditions.',
+        sustainable_title: 'Sustainable Resource Use',
+        sustainable_desc: 'Optimize water, fertilizer, and energy usage for maximum yield with minimal environmental impact.'
       }
     }
   },
@@ -191,6 +225,40 @@ const resources = {
         schemes_title: 'सरकारी योजनाएँ',
         schemes_desc: 'अपनी खेती प्रोफ़ाइल के अनुसार पात्र सरकारी योजनाएँ और सब्सिडी खोजें',
         schemes_cta: 'योजनाएँ खोजें'
+      },
+      learn: {
+        title: 'कृषि सीखें',
+        description: 'सरल, छात्र-अनुकूल पाठ स्कूल और कॉलेज के छात्रों को यह समझने में मदद करते हैं कि कृषि कैसे काम करती है, यह क्यों महत्वपूर्ण है, और वे इसके भविष्य में कैसे भाग ले सकते हैं।',
+        badge: 'छात्र-अनुकूल मोड',
+        badgeDescription: 'सामग्री शिक्षार्थियों के लिए सरल भाषा में लिखी गई है।',
+        exploreLesson: 'पाठ जारी रखें',
+        cards: {
+          basics_title: 'कृषि की बुनियादी बातें',
+          basics_desc: 'समझें कि कृषि क्या है, यह क्यों महत्वपूर्ण है, और खेती दुनिया को कैसे खिलाती है।',
+          lifecycle_title: 'फसल जीवन चक्र',
+          lifecycle_desc: 'बीज से फसल तक – एक फसल के जीवन के प्रत्येक चरण को समझें।',
+          soil_title: 'मिट्टी के प्रकार और परीक्षण',
+          soil_desc: 'विभिन्न मिट्टी, सरल परीक्षण, और स्वस्थ मिट्टी क्यों महत्वपूर्ण है, इसके बारे में जानें।',
+          modern_title: 'आधुनिक कृषि तकनीकें',
+          modern_desc: 'स्मार्ट सिंचाई, ड्रोन, सेंसर, और जलवायु-स्मार्ट कृषि की खोज करें।',
+          schemes_title: 'सरकारी योजनाएँ (छात्रों के लिए)',
+          schemes_desc: 'युवा शिक्षार्थियों के लिए उपयोगी योजनाओं और सहायता कार्यक्रमों की सरल व्याख्या।',
+          careers_title: 'कैरियर के अवसर',
+          careers_desc: 'कृषि में नौकरियों और पाठ्यक्रमों की खोज करें, वैज्ञानिक से कृषि उद्यमी तक।'
+        }
+      },
+      values: {
+        sectionLabel: 'मूल्य',
+        sectionTitle: 'हमारे एआई प्लेटफॉर्म क्यों मायने रखता है',
+        sectionDescription: 'भारतीय किसानों को टिकाऊ और लाभदायक कृषि के लिए बुद्धिमान उपकरणों के साथ सशक्त बनाना',
+        dataDriven_title: 'डेटा-संचालित निर्णय',
+        dataDriven_desc: 'वास्तविक समय डेटा और ऐतिहासिक पैटर्न के आधार पर AI-संचालित अंतर्दृष्टि के साथ सूचित विकल्प बनाएं।',
+        monsoon_title: 'मानसून-जागरूक बुद्धिमत्ता',
+        monsoon_desc: 'भारतीय कृषि मौसम के लिए अनुकूलित भविष्य कथन जलवायु विश्लेषण के साथ मौसम पैटर्न से आगे रहें।',
+        farmer_title: 'किसान-पहले डिजाइन',
+        farmer_desc: 'भारतीय किसानों के लिए बनाया गया साधारण, सहज अंतरफलक जो ग्रामीण कनेक्टिविटी स्थितियों में काम करता है।',
+        sustainable_title: 'टिकाऊ संसाधन उपयोग',
+        sustainable_desc: 'जल, खाद, और ऊर्जा के उपयोग को अधिकतम उपज के साथ न्यूनतम पर्यावरणीय प्रभाव के लिए अनुकूलित करें।'
       }
     }
   },
@@ -287,6 +355,40 @@ const resources = {
         schemes_title: 'ప్రభుత్వ పథకాలు',
         schemes_desc: 'మీ వ్యవసాయ ప్రొఫైల్‌కు అనుగుణంగా నిర్ధారణ చేసిన ప్రభుత్వ పథకాలు మరియు సబ్సిడీలను కనుగొనండి',
         schemes_cta: 'పథకాలను కనుగొనండి'
+      },
+      learn: {
+        title: 'వ్యవసాయాన్ని నేర్చుకోండి',
+        description: 'సరళమైన, విద్యార్థి-స్నేహపూర్వక పాఠాలు స్కూల్ మరియు కళాశాల విద్యార్థులకు వ్యవసాయం ఎలా వ్యవహరిస్తుందో, ఎందుకు ముఖ్యమైనది, మరియు వారు దాని భవిష్యత్‌లో ఎలా భాగం కావాలో గ్రహించడానికి సహాయపడతాయి.',
+        badge: 'విద్యార్థి-స్నేహపూర్వక మోడ్',
+        badgeDescription: 'విషయవస్తువు నేర్చుకునేవారి కోసం సరళ భాషలో వ్రాయబడింది.',
+        exploreLesson: 'పాఠం అన్వేషించండి',
+        cards: {
+          basics_title: 'వ్యవసాయం యొక్క ప్రాథమికాలు',
+          basics_desc: 'వ్యవసాయం ఏమిటి, ఎందుకు ముఖ్యమైనది, మరియు చేటలు ప్రపంచాన్ని ఎలా పోషిస్తాయో అర్థం చేసుకోండి.',
+          lifecycle_title: 'ఫసల జీవితచక్రం',
+          lifecycle_desc: 'విత్తనం నుండి కస్బా వరకు – ఫసల జీవితం యొక్క ప్రతిదీ దశను విస్ఫూర్తి చేయండి.',
+          soil_title: 'మట్టి రకాలు & పరీక్ష',
+          soil_desc: 'విభిన్నమైన విల్లలు, సరళమైన పరీక్షలు, మరియు ఆరోగ్యకరమైన మట్టి ఎందుకు ముఖ్యమైనది, ఇది గురించి తెలుసుకోండి.',
+          modern_title: 'ఆధునిక వ్యవసాయ పద్ధతులు',
+          modern_desc: 'స్మార్ట్ నీటిపారేవ, డ్రోన్‌లు, సెన్సార్‌లు, మరియు వాతావరణ-స్మార్ట్ వ్యవసాయాన్ని కనుగొనండి.',
+          schemes_title: 'ప్రభుత్వ పథకాలు (విద్యార్థులకు)',
+          schemes_desc: 'యువ నేర్చుకునేవారికి ఉపయోగకరమైన పథకాలు మరియు ఆధారపు కార్యక్రమాల సరళ వివరణ.',
+          careers_title: 'కెరీర్ సంభావనలు',
+          careers_desc: 'వ్యవసాయం లో ఉద్యోగాలు మరియు కోర్సులను కనుగొనండి, శాస్త్రవేత్త నుండి కృషి-ఆయుధ వరకు.'
+        }
+      },
+      values: {
+        sectionLabel: 'తెలుగు విలువలు',
+        sectionTitle: 'మన AI ప్ల్యాట్‌ఫర్మ్ ఎందుకు ముఖ్యమైనది',
+        sectionDescription: 'భారతీయ రైతులను సమకూలమైన మరియు లాభదాయక వ్యవసాయం కోసం తెలివిగల సాధనాలతో సాధికారం చేయడం',
+        dataDriven_title: 'డేటా-ఆధారిత నిర్ణయాలు',
+        dataDriven_desc: 'నిజ‑కాల డేటా మరియు చారిత్రక నమూనాల ఆధారంగా AI-శక్తిచేసిన అంతర్దృష్టితో సమాచారించిన ఎంపికలు చేయండి.',
+        monsoon_title: 'మానసూన్-సమర్థ తెలివితక',
+        monsoon_desc: 'భారతీయ వ్యవసాయ సీజన్‌ల కోసం తయారిచేసిన శ్రద్ధ వాతావరణం విశ్లేషణ ఉపయోగించి వాతావరణ నమూనాల నుండి ముందుకు ఉండండి.',
+        farmer_title: 'రైతు-మొదటి డిజైన్',
+        farmer_desc: 'భారతీయ రైతుల కోసం నిర్మితమైన సరళమైన, సహజ ఇంటర్‌ఫేస్‌లు, గ్రామీణ కనెక్టివిటీ వ్యవస్థల్లో కూడా పనిచేస్తాయి.',
+        sustainable_title: 'సంపూర్ణ వనరు ఉపయోగం',
+        sustainable_desc: 'నీరు, ఫర్టిలైజర్, మరియు శక్తి వినియోగాన్ని గరిష్ఠ దిగుబడితో కనీస పర్యావరణ ప్రభావ కోసం ఆప్టిమైజ్ చేయండి.'
       }
     }
   }

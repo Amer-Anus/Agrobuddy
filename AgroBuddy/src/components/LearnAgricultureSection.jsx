@@ -1,53 +1,43 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
-const learnCards = [
-  {
-    id: 'basics',
-    title: 'Basics of Agriculture',
-    description: 'Understand what agriculture is, why it matters, and how farms feed the world.',
-    icon: '📘',
-    path: '/learn-agriculture/basics',
-  },
-  {
-    id: 'lifecycle',
-    title: 'Crop Lifecycle',
-    description: 'From seed to harvest – explore each stage in a crop\'s life.',
-    icon: '🌱',
-    path: '/learn-agriculture/crop-lifecycle',
-  },
-  {
-    id: 'soil',
-    title: 'Soil Types & Testing',
-    description: 'Learn about different soils, simple tests, and why healthy soil is important.',
-    icon: '🧪',
-    path: '/learn-agriculture/soil-types-testing',
-  },
-  {
-    id: 'modern',
-    title: 'Modern Farming Techniques',
-    description: 'Discover smart irrigation, drones, sensors, and climate-smart farming.',
-    icon: '🚜',
-    path: '/learn-agriculture/modern-farming',
-  },
-  {
-    id: 'schemes',
-    title: 'Government Schemes (For Students)',
-    description: 'Easy explanations of schemes and support programs useful for young learners.',
-    icon: '🏛️',
-    path: '/learn-agriculture/student-schemes',
-  },
-  {
-    id: 'careers',
-    title: 'Career Opportunities',
-    description: 'Explore jobs and courses in agriculture, from scientist to agri-entrepreneur.',
-    icon: '🎓',
-    path: '/learn-agriculture/careers',
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 const LearnAgricultureSection = () => {
   const navigate = useNavigate()
+  const { t } = useTranslation()
+
+  const learnCards = [
+    {
+      id: 'basics',
+      icon: '📘',
+      path: '/learn-agriculture/basics',
+    },
+    {
+      id: 'lifecycle',
+      icon: '🌱',
+      path: '/learn-agriculture/crop-lifecycle',
+    },
+    {
+      id: 'soil',
+      icon: '🧪',
+      path: '/learn-agriculture/soil-types-testing',
+    },
+    {
+      id: 'modern',
+      icon: '🚜',
+      path: '/learn-agriculture/modern-farming',
+    },
+    {
+      id: 'schemes',
+      icon: '🏛️',
+      path: '/learn-agriculture/student-schemes',
+    },
+    {
+      id: 'careers',
+      icon: '🎓',
+      path: '/learn-agriculture/careers',
+    },
+  ]
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -55,17 +45,16 @@ const LearnAgricultureSection = () => {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-agri-green mb-2">
-              Learn Agriculture
+              {t('learn.title')}
             </h2>
             <p className="text-gray-600 max-w-2xl">
-              Simple, student-friendly lessons to help school and college students understand
-              how agriculture works, why it matters, and how they can be part of its future.
+              {t('learn.description')}
             </p>
           </div>
           <div className="inline-flex items-center space-x-2 bg-agri-bg border border-agri-green/20 rounded-full px-4 py-2 text-xs sm:text-sm text-agri-green">
-            <span className="font-semibold">Student-Friendly Mode</span>
+            <span className="font-semibold">{t('learn.badge')}</span>
             <span className="text-gray-500 hidden sm:inline">
-              Content written in simple language for learners.
+              {t('learn.badgeSubtext')}
             </span>
           </div>
         </div>
@@ -89,13 +78,13 @@ const LearnAgricultureSection = () => {
                   </span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-agri-green">
-                  {card.title}
+                  {t(`learn.cards.${card.id}_title`)}
                 </h3>
                 <p className="text-sm text-gray-600 flex-1">
-                  {card.description}
+                  {t(`learn.cards.${card.id}_desc`)}
                 </p>
                 <div className="mt-4 flex items-center text-sm font-medium text-agri-green group-hover:translate-x-1 transition-transform">
-                  Explore lesson
+                  {t('learn.exploreLesson')}
                   <svg
                     className="w-4 h-4 ml-1"
                     fill="none"

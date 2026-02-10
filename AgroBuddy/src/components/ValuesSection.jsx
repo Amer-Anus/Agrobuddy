@@ -1,26 +1,25 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ValuesSection = () => {
+  const { t } = useTranslation()
+
   const values = [
     {
+      id: 'dataDriven',
       icon: '📊',
-      title: 'Data-Driven Decisions',
-      description: 'Make informed choices with AI-powered insights based on real-time data and historical patterns.',
     },
     {
+      id: 'monsoon',
       icon: '🌧️',
-      title: 'Monsoon-Aware Intelligence',
-      description: 'Stay ahead of weather patterns with predictive climate analysis tailored for Indian farming seasons.',
     },
     {
+      id: 'farmer',
       icon: '👨‍🌾',
-      title: 'Farmer-First Design',
-      description: 'Built for Indian farmers with simple, intuitive interfaces that work in rural connectivity conditions.',
     },
     {
+      id: 'sustainable',
       icon: '🌱',
-      title: 'Sustainable Resource Use',
-      description: 'Optimize water, fertilizer, and energy usage for maximum yield with minimal environmental impact.',
     },
   ]
 
@@ -33,13 +32,13 @@ const ValuesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <p className="text-sm font-semibold text-agri-green uppercase tracking-wider mb-4">
-            VALUES
+            {t('values.sectionLabel')}
           </p>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-agri-dark mb-6">
-            Why Our AI Platform Matters
+            {t('values.sectionTitle')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Empowering Indian farmers with intelligent tools for sustainable and profitable agriculture
+            {t('values.sectionDescription')}
           </p>
         </div>
 
@@ -58,10 +57,10 @@ const ValuesSection = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-agri-dark mb-3">
-                    {value.title}
+                    {t(`values.${value.id}_title`)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-lg">
-                    {value.description}
+                    {t(`values.${value.id}_desc`)}
                   </p>
                 </div>
               </div>
