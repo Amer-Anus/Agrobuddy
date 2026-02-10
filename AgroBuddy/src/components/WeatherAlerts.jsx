@@ -50,19 +50,53 @@ const WeatherAlerts = () => {
     return forecast
   }
 
-  const generateHourlyForecast = () => {
+  const formatHourLabel = (date) => {
+    return date.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true })
+  }
+
+  const iconToCondition = (icon) => {
+    const map = { '☀️': 'Sunny', '⛅': 'Partly Cloudy', '☁️': 'Cloudy', '🌦️': 'Light Rain', '🌙': 'Clear' }
+    return map[icon] || 'Clear'
+  }
+
+  // Generate a realistic 24-hour hourly forecast using diurnal temperature variation
+  const generateHourlyForecast = (currentTemp = 22, currentRain = 0) => {
     const hours = []
-    for (let i = 0; i < 12; i++) {
-      const hour = (12 + i * 2) % 24
-      const timeString = `${String(hour).padStart(2, '0')}:00`
+    const now = new Date()
+    const currentHour = now.getHours()
+    const amplitude = 4 // typical day-night swing
+    const peakHour = 15 // temperature peak around 3 PM
+
+    for (let i = 0; i < 24; i++) {
+      const hourDate = new Date(now)
+      hourDate.setHours(currentHour + i, 0, 0, 0)
+      const hour = hourDate.getHours()
+
+      // Sinusoidal diurnal model centered on currentTemp
+      const radians = ((hour - peakHour) / 24) * 2 * Math.PI
+      const tempOffset = Math.round(amplitude * Math.sin(radians))
+      const temp = Math.round(currentTemp + tempOffset)
+
+      // Choose icon based on temperature and hour
+      let icon = '⛅'
+      if (hour >= 20 || hour <= 5) icon = '🌙'
+      else if (temp >= currentTemp + 2) icon = '☀️'
+      else if (temp <= currentTemp - 2) icon = '☁️'
+
+      // Smooth rain probability based on currentRain and diurnal variation
+      const baseRainProb = Math.min(80, Math.round(currentRain * 10))
+      const rainVariation = Math.round((Math.sin((hour / 24) * 2 * Math.PI) + 1) * 8) // 0-16
+      const rainProb = Math.max(0, Math.min(100, baseRainProb + rainVariation + (Math.random() * 6 - 3)))
+
       hours.push({
-        time: timeString,
-        temp: 20 + Math.floor(Math.random() * 8),
-        condition: ['Clear', 'Cloudy', 'Partly Cloudy'][Math.floor(Math.random() * 3)],
-        icon: ['🌙', '⛅', '☀️', '☁️'][Math.floor(Math.random() * 4)],
-        rain: Math.floor(Math.random() * 30) + '%',
+        time: formatHourLabel(hourDate),
+        temp,
+        condition: iconToCondition(icon),
+        icon,
+        rain: `${Math.round(rainProb)}%`,
       })
     }
+
     return hours
   }
 
@@ -92,7 +126,7 @@ const WeatherAlerts = () => {
         },
       ],
       forecast: generateForecast(20, 29, ['Partly Cloudy', 'Sunny', 'Cloudy', 'Light Rain'], ['⛅', '☀️', '☁️', '🌦️'], ['2mm', '0mm', '3mm', '8mm'], ['14 km/h', '12 km/h', '15 km/h', '16 km/h']),
-      hourly: generateHourlyForecast(),
+      hourly: generateHourlyForecast(28, 2),
       farmingRecommendations: {
         watering: 'Morning and evening watering recommended due to moderate humidity (58%). Water deeply but less frequently to encourage root development.',
         pestManagement: 'Monitor for powdery mildew in morning hours. The partly cloudy weather with moderate wind provides favorable conditions. Scout crops thoroughly.',
@@ -132,7 +166,7 @@ const WeatherAlerts = () => {
         },
       ],
       forecast: generateForecast(4, 12, ['Mostly Clear', 'Cloudy', 'Frost'], ['☀️', '☁️', '❄️'], ['0mm', '2mm', '0mm'], ['16 km/h', '14 km/h', '18 km/h']),
-      hourly: generateHourlyForecast(),
+      hourly: generateHourlyForecast(12, 0),
       farmingRecommendations: {
         watering: 'Reduce watering frequency. Cold temperatures slow water uptake. Water only when soil surface is dry, preferably in midday hours to reduce frost risk.',
         pestManagement: 'Cold temperatures will slow pest development. Most insects are dormant. Continue monitoring for early morning arrivals of mobile pests.',
@@ -165,7 +199,7 @@ const WeatherAlerts = () => {
         },
       ],
       forecast: generateForecast(17, 26, ['Sunny', 'Partly Cloudy', 'Light Rain'], ['☀️', '⛅', '🌦️'], ['0mm', '1mm', '2mm'], ['8 km/h', '9 km/h', '10 km/h']),
-      hourly: generateHourlyForecast(),
+      hourly: generateHourlyForecast(24, 0),
       farmingRecommendations: {
         watering: 'Sunny climate requires consistent irrigation. Early morning watering is ideal. Consider drip irrigation to minimize evaporation and water loss.',
         pestManagement: 'Sunny, warm weather is favorable for pest activity. Increase monitoring frequency. Apply organic pest management strategies in evening hours.',
@@ -198,7 +232,7 @@ const WeatherAlerts = () => {
         },
       ],
       forecast: generateForecast(16, 27, ['Partly Cloudy', 'Sunny', 'Cloudy', 'Light Rain'], ['⛅', '☀️', '☁️', '🌦️'], ['1mm', '0mm', '2mm', '5mm'], ['12 km/h', '11 km/h', '13 km/h', '14 km/h']),
-      hourly: generateHourlyForecast(),
+      hourly: generateHourlyForecast(26, 1),
       farmingRecommendations: {
         watering: 'Moderate temperatures and humidity suggest balanced watering needs. Water deeply 2-3 times per week depending on soil type and crop stage.',
         pestManagement: 'Mild weather with moderate wind is optimal for integrated pest management. Scout crops and plan preventative measures accordingly.',
