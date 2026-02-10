@@ -1,6 +1,6 @@
 # AgroBuddy
 
-A modern, mobile-friendly frontend demo website for Indian farmers, built for hackathon presentation.
+A modern, mobile-friendly frontend demo website for Indian farmers. "WITHOUT INTERNET ACCESS just GO ON ONE TAP" 
 
 AgroBuddy is an AI-based helper which plays an important role in Rural support and agriculture.
 
