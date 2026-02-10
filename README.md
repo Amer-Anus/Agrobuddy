@@ -41,7 +41,12 @@ npm install
 npm run dev
 ```
 
-3. Open your browser and navigate to `http://localhost:5173`
+3. Open your browser and navigate to `http://localhost:5173` (or the port shown in the terminal)
+
+### Deployment
+
+- The site is automatically built and deployed to GitHub Pages on each push to the `main` branch.
+- Live URL: `https://amer-anus.github.io/Agrobuddy/`
 
 ### Build for Production
 
